@@ -1,0 +1,25 @@
+﻿Build started 27/04/2015 22:46:12.
+     1>Project "C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\advanced_ex2.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\advanced_ex2.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt test1.cpp
+         test1.cpp
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(10): error C2039: 'list' : is not a member of 'std'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(10): error C2143: syntax error : missing ';' before '<'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(10): error C2238: unexpected token(s) preceding ';'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(13): error C2614: 'DayCalendar_t' : illegal member initialization: '_meetings' is not a base or member
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(19): error C2065: '_meetings' : undeclared identifier
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\daycalendar_t.h(19): error C2228: left of '.push_back' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(137): error C2143: syntax error : missing ';' before '<'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(137): error C2143: syntax error : missing ';' before '<'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(138): error C2065: 'cal1' : undeclared identifier
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(138): error C2228: left of '.AddMeeting' must have class/struct/union
+                 type is ''unknown-type''
+     1>Done Building Project "C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\advanced_ex2.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.28
