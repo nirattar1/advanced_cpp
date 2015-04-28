@@ -1,45 +1,11 @@
 #include "Meeting_t.h"
+#include "MeetingLocation_t.h"
 #include "DayCalendar_t.h"
 #include <iostream>
 #include <cstdlib>
 
 using namespace std;
 
-/* Meeting_t<T> cin cout overloading */
-template <class T> ostream& operator<< (ostream& os, const Meeting_t<T>& p)
-{
-	if (NULL == &p)
-	{
-		os << "\n NULL (no element)";
-	}
-
-	else
-	{
-		os << "\nStart time: " << p.GetTimeStart()
-			<< "\nEnd time: " << p.GetTimeEnd() 
-			<< "\nSubject: " << p.GetSubject() << endl << endl;
-	}
-
-	return os;
-}
-
-template <class T> istream& operator>> (istream& is, Meeting_t<T>& p)
-{
-	
-	T time_start;
-	T time_end;
-	string subject;
-
-	is >> time_start;
-	is >> time_end;
-	is >> subject;
-
-	p.SetTimeStart(time_start);
-	p.SetTimeEnd(time_end);
-	p.SetSubject(subject);
-	
-	return is;
-}
 //
 ///* PersonArray cin cout overloading */
 //ostream& operator<< (ostream& os, PersonArray_t& pa)
@@ -69,7 +35,16 @@ public:
 	virtual void	CreateIntMeeting();
 	virtual void	CreateFloatMeeting();
 	virtual void	CompareTwoMeetsInt();
+	virtual void	AddMeetingBase();
+	virtual void 	LocationMeeting_Add();
+
+	/**add meeting to calendar member.
+	*/
 	virtual void	AddMeeting();
+	template <class T> void	FindMeeting();
+	virtual void RemoveIntMeeting();
+	virtual void    print();
+
 /*
 	virtual void    getNumOfElements();
 	virtual void    getCapacity();
@@ -83,9 +58,11 @@ public:
 	virtual void	removeAndDeleteAll();
 	virtual void	append();
 	virtual void	prepend();
-	virtual void    print();*/
+	*/
 public:
-	//
+	//member of calendar. 
+	DayCalendar_t<int> _calendar_ints;
+	DayCalendar_t<float> _calendar_floats;
 };
 
 Test_t::Test_t()
@@ -95,7 +72,8 @@ Test_t::Test_t()
 
 Test_t::~Test_t()
 {
-	//arr->RemoveAndDeleteAll();
+	//TODO clean all meetings (dynamically allocated).
+
 
 }
 
@@ -131,7 +109,7 @@ void Test_t::CompareTwoMeetsInt ()
 	cout << string ("does meeting 3 intersect meeting 4? ") << ((meet3==meet4)? "1" : "0") << endl;
 }
 
-void Test_t::AddMeeting()
+void Test_t::AddMeetingBase()
 {
 	Meeting_t <int> meet1 (1, 4, "meeting 1");
 	Meeting_t <int> meet2 (4, 7, "meeting 2");
@@ -140,15 +118,29 @@ void Test_t::AddMeeting()
 	cal1.AddMeeting(&meet2);
 }
 
-//
-//void Test_t::insert()
-//{
-//	cout << "enter person details.. name, age \n";
-//	Person_t* person = new Person_t();
-//	cin >> *person;
-//	arr->InsertLast(person);
-//} 
-//
+void Test_t::AddMeeting()
+{
+	Meeting_t <int> * meet = new Meeting_t<int>;
+	cin >> *meet;
+
+	_calendar_ints.AddMeeting(meet);
+
+}
+
+void Test_t::LocationMeeting_Add()
+{
+	Meeting_t <int> meet1 (1, 4, "meeting 1");
+	MeetingLocation_t<int> locmeet2 (4, 7, "meeting 2", "new location");
+	DayCalendar_t <int> cal1;
+	cal1.AddMeeting(&meet1);
+	cal1.AddMeeting(&locmeet2);
+	
+	//this should not compile (add meet of float):
+	//MeetingLocation_t<float> meet3(4.6, 7.6, "meeting 3", "location3");
+	//cal1.AddMeeting(&meet3);
+}
+
+
 //void Test_t::getNumOfElements()
 //{
 //	cout << "Number of elements is: " << arr->GetSize() << endl << endl;
@@ -169,24 +161,45 @@ void Test_t::AddMeeting()
 //	cout << "Last Element is: " << *arr->GetLast() << endl << endl;
 //}
 //
-//void Test_t::find()
-//{
-//	cout << "enter person details.. name, age \n";
-//	Person_t person;
-//	cin >> person;
-//	Person_t* found = arr->FindElement(person);
-//
-//	cout << "Found Element is: " << *found << endl << endl;
-//}
-//
-//void Test_t::remove()
-//{
-//	cout << "enter person details.. name, age \n";
-//	Person_t person;
-//	cin >> person;
-//	arr->RemoveElement(person);
-//}
-//
+
+template <class T> void Test_t::FindMeeting()
+{
+	cout << "Enter start time \n";
+	T TimeStart;
+	cin >> TimeStart;
+	
+	Meeting_t<T> * found = _calendar_ints.FindMeeting(TimeStart);
+
+	if (!found)
+	{
+		cout << "Meeting not found ." ;
+	}
+	else
+	{
+		cout << "Found Element is: " << *found << endl << endl;
+	}
+
+}
+
+void Test_t::RemoveIntMeeting()
+{
+
+	cout << "Enter start time \n";
+	int TimeStart;
+	cin >> TimeStart;
+
+	bool found = _calendar_ints.DeleteMeeting(TimeStart);
+
+	if (!found)
+	{
+		cout << "Meeting not found ."  << endl;
+	}
+	else
+	{
+		cout << "Meeting found and removed. " << endl;
+	}
+}
+
 //void Test_t::removeAll()
 //{
 //	arr->RemoveAll();
@@ -231,10 +244,11 @@ void Test_t::AddMeeting()
 //	arr->InsertBefore(index, person);
 //}
 //
-//void Test_t::print()
-//{
-//	cout << *arr;
-//}
+
+void Test_t::print()
+{
+	cout << _calendar_ints;
+}
 
 int main ()
 {
@@ -244,12 +258,16 @@ int main ()
 
 	while (cont) {
 		unsigned int c;
-		cout << "Enter your choise:" << endl
+		cout << "Enter your choice:" << endl
 
 			<< "1 - create int meeting" << endl
 			<< "2 - create float meeting" << endl
 			<< "3 - compare 2 int meetings " << endl
-			<< "4 - add meeting" << endl
+			<< "4 - add meeting (base test)" << endl
+			<< "5 - add location meeting (base test)" << endl
+			<< "6 - add meeting" << endl
+			<< "7 - find int meeting" << endl
+			<< "8 - remove int meeting" << endl
 /*
 			<< "1 - get number of elements" << endl
 			<< "2 - get capacity" << endl
@@ -263,7 +281,8 @@ int main ()
 			<< "10 - remove and delete all" << endl
 			<< "11 - append" << endl
 			<< "12 - prepend" << endl
-			<< "13 - print" << endl*/
+*/
+			<< "13 - print calendar" << endl
 			<< "Any other key - quit" << endl << endl;
 
 		if (!(cin >> c))
@@ -284,20 +303,19 @@ int main ()
 			test.CompareTwoMeetsInt();
 			break;
 		case 4:
+			test.AddMeetingBase();
+			break;
+		case 5:
+			test.LocationMeeting_Add();
+		case 6:
 			test.AddMeeting();
 			break;
-		//case 5:
-		//	test.getLast();
-		//	break;
-		//case 6:
-		//	test.find();
-		//	break;
-		//case 7:
-		//	test.remove();
-		//	break;
-		//case 8:
-		//	test.removeAll();
-		//	break;
+		case 7:
+			test.FindMeeting<int>();
+			break;
+		case 8:
+			test.RemoveIntMeeting();
+			break;
 		//case 9:
 		//	test.removeAndDeleteElement();
 		//	break;
@@ -310,9 +328,9 @@ int main ()
 		//case 12:
 		//	test.prepend();
 		//	break;
-		//case 13:
-		//	test.print();
-		//	break;
+		case 13:
+			test.print();
+			break;
 		default:
 			cont = false;
 			break;

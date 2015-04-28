@@ -46,5 +46,43 @@ protected:
 
 };
 
+
+
+/* Meeting_t<T> cin cout overloading */
+template <class T> ostream& operator<< (ostream& os, const Meeting_t<T>& p)
+{
+	if (NULL == &p)
+	{
+		os << "\n NULL (no element)";
+	}
+
+	else
+	{
+		os << "\nStart time: " << p.GetTimeStart()
+			<< "\nEnd time: " << p.GetTimeEnd() 
+			<< "\nSubject: " << p.GetSubject() << endl << endl;
+	}
+
+	return os;
+}
+
+template <class T> istream& operator>> (istream& is, Meeting_t<T>& p)
+{
+
+	T time_start;
+	T time_end;
+	string subject;
+
+	is >> time_start;
+	is >> time_end;
+	is >> subject;
+
+	p.SetTimeStart(time_start);
+	p.SetTimeEnd(time_end);
+	p.SetSubject(subject);
+
+	return is;
+}
+
 #endif
 
