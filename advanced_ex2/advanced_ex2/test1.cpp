@@ -133,9 +133,11 @@ void Test_t::CompareTwoMeetsInt ()
 
 void Test_t::AddMeeting()
 {
-	Meeting_t <int> meet1 (1, 9, "meeting 1");
+	Meeting_t <int> meet1 (1, 4, "meeting 1");
+	Meeting_t <int> meet2 (4, 7, "meeting 2");
 	DayCalendar_t <int> cal1;
 	cal1.AddMeeting(&meet1);
+	cal1.AddMeeting(&meet2);
 }
 
 //
@@ -281,9 +283,9 @@ int main ()
 		case 3:
 			test.CompareTwoMeetsInt();
 			break;
-		//case 4:
-		//	test.getFirst();
-		//	break;
+		case 4:
+			test.AddMeeting();
+			break;
 		//case 5:
 		//	test.getLast();
 		//	break;

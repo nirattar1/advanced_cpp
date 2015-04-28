@@ -4,14 +4,9 @@
 #include <string>
 using namespace std;
 
-class IMeeting
-{
-
-};
-
 
 template <class T> 
-class Meeting_t : IMeeting
+class Meeting_t
 {
 
 public:
