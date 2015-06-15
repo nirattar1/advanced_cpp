@@ -1,0 +1,29 @@
+﻿Build started 29/04/2015 20:32:55.
+     1>Project "C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\advanced_ex2.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\advanced_ex2.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt test1.cpp
+         test1.cpp
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(116): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(116): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(117): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(117): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(118): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(118): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(121): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\test1.cpp(121): warning C4305: 'argument' : truncation from 'double' to 'float'
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\Debug\advanced_ex2.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\advanced_ex2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\Debug\advanced_ex2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\Debug\advanced_ex2.lib" /MACHINE:X86 Debug\test1.obj
+         LINK : C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\Debug\advanced_ex2.exe not found or not built by the last incremental link; performing full link
+         advanced_ex2.vcxproj -> C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\Debug\advanced_ex2.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\Debug\advanced_ex2.exe;#1" /manifest Debug\advanced_ex2.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\advanced_ex2.unsuccessfulbuild".
+         Touching "Debug\advanced_ex2.lastbuildstate".
+     1>Done Building Project "C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex2\advanced_ex2\advanced_ex2.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.73

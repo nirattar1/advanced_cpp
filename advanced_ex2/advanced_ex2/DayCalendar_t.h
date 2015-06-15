@@ -13,14 +13,58 @@ protected:
 	list <Meeting_t<T> * > _meetings;
 
 public:
-	DayCalendar_t () : _meetings() {}
+	DayCalendar_t () : _meetings() {};
 	virtual ~DayCalendar_t() {};
+
+	// for print
 	friend std::ostream& operator<<	(std::ostream&, const DayCalendar_t<T> &);
 
-	void AddMeeting (Meeting_t<T> * meeting)
+	/** will add the meeting pointed at "meeting_1" , to calendar.
+	@throws exception , if meeting intersects with someone.
+	*/
+	void AddMeeting (Meeting_t<T> * meeting_1)
 	{
-		//TODO make good implementation.
-		_meetings.push_back(meeting);
+		list<Meeting_t<T> *>::iterator it = _meetings.begin();
+		bool inserted = false;
+
+		//on empty list, just insert.
+		if (_meetings.empty())
+		{
+			_meetings.push_back(meeting_1);
+			return;
+		}
+
+		//list not empty, need to find the spot.
+
+		//iterate while not reached end or found place.
+		while (it != _meetings.end() && !inserted) 
+		{
+			//find the first meeting that is "after" meeting_1.
+			//and meeting_1 does not intersect with it.
+			if ((**it) == *meeting_1)//intersection
+			{
+				throw string("meeting intersects with another meeting");
+			}
+
+			//if found a possible place , insert there.
+			if ((**it) > *meeting_1 )
+			{
+				_meetings.insert(it, meeting_1);
+				inserted = true;
+				return;
+			}
+
+			//move on
+			 ++it;
+		}
+
+		//insert end if needed.
+		if (!inserted && it == _meetings.end())
+		{
+			_meetings.insert(it, meeting_1);
+			inserted = true;
+		}
+
 	}
 
 	/** find the meeting by start time.
@@ -55,6 +99,14 @@ public:
 		//meeting not found
 		return false;
 	}
+
+
+private:
+	//meeting calendar is not copyable!  
+	// make copy CTOR private
+	DayCalendar_t(DayCalendar_t& source_cal);
+
+
 
 };
 

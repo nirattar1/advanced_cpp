@@ -30,13 +30,31 @@ public:
 	void SetSubject(const string & subject) { _subject = subject; };
 
 
-	//comparison operator
-	//will check intersection between this meeting and other meeting.
-	bool operator==(const Meeting_t<T>& other)
+	/** comparison operator
+	will return true if there is intersection between this meeting and other meeting.
+	*/
+	bool operator==(const Meeting_t<T>& other) const
 	{
-		//TODO implement intersection
-		return (other.GetTimeStart() == this->GetTimeStart());
+		
+		//check possible intersections.
+		if (other.GetTimeStart() == this->GetTimeStart())
+			return true;
+		if (other.GetTimeStart() > this->GetTimeStart() && other.GetTimeStart() < this->GetTimeEnd())
+			return true;
+		if (this->GetTimeStart() > other.GetTimeStart() && this->GetTimeStart() < other.GetTimeEnd())
+			return true;
 
+		//no intersection.
+		return false;
+		
+	}
+
+	/** 
+	will return true if meeting this meeting starts after "other" meeting.
+	*/
+	bool operator > (const Meeting_t<T>& other) const
+	{
+		return (this->GetTimeStart() > other.GetTimeStart());
 	}
 
 protected:

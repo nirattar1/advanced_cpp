@@ -35,6 +35,7 @@ public:
 	virtual void	CreateIntMeeting();
 	virtual void	CreateFloatMeeting();
 	virtual void	CompareTwoMeetsInt();
+	virtual void	CompareTwoMeetsFloat();
 	virtual void	AddMeetingBase();
 	virtual void 	LocationMeeting_Add();
 
@@ -106,7 +107,28 @@ void Test_t::CompareTwoMeetsInt ()
 	cout << meet4;
 	cout << string ("does meeting 1 intersect meeting 2? ") << ((meet1==meet2)? "1" : "0") << endl;
 	cout << string ("does meeting 2 intersect meeting 3? ") << ((meet2==meet3)? "1" : "0") << endl;
+	cout << string ("does meeting 1 intersect meeting 3? ") << ((meet1==meet3)? "1" : "0") << endl;
 	cout << string ("does meeting 3 intersect meeting 4? ") << ((meet3==meet4)? "1" : "0") << endl;
+}
+
+void Test_t::CompareTwoMeetsFloat ()
+{
+	Meeting_t <float> meet1 (1.1, 8.1, "meeting 1");
+	Meeting_t <float> meet2 (1.1, 3.2, "meeting 2");
+	Meeting_t <float> meet3 (2.2, 4.4, "meeting 3");
+	Meeting_t <float> meet4 (5.5, 8.0, "meeting 4");
+	Meeting_t <float> meet5 (8.0, 9.0, "meeting 5");
+	Meeting_t <float> meet6 (7.9, 8.1, "meeting 6");
+	cout << meet1;
+	cout << meet2;
+	cout << meet3;
+	cout << meet4;
+	cout << string ("does meeting 1 intersect meeting 2? ") << ((meet1==meet2)? "1" : "0") << endl;
+	cout << string ("does meeting 2 intersect meeting 3? ") << ((meet2==meet3)? "1" : "0") << endl;
+	cout << string ("does meeting 1 intersect meeting 3? ") << ((meet1==meet3)? "1" : "0") << endl;
+	cout << string ("does meeting 3 intersect meeting 4? ") << ((meet3==meet4)? "1" : "0") << endl;
+	cout << string ("does meeting 4 intersect meeting 5? ") << ((meet4==meet5)? "1" : "0") << endl;
+	cout << string ("does meeting 5 intersect meeting 6? ") << ((meet5==meet6)? "1" : "0") << endl;
 }
 
 void Test_t::AddMeetingBase()
@@ -123,7 +145,15 @@ void Test_t::AddMeeting()
 	Meeting_t <int> * meet = new Meeting_t<int>;
 	cin >> *meet;
 
-	_calendar_ints.AddMeeting(meet);
+	try
+	{
+		_calendar_ints.AddMeeting(meet);
+	}
+	catch  (string ex)
+	{
+		cout << ex;
+	}
+	
 
 }
 
@@ -262,12 +292,14 @@ int main ()
 
 			<< "1 - create int meeting" << endl
 			<< "2 - create float meeting" << endl
-			<< "3 - compare 2 int meetings " << endl
 			<< "4 - add meeting (base test)" << endl
 			<< "5 - add location meeting (base test)" << endl
 			<< "6 - add meeting" << endl
 			<< "7 - find int meeting" << endl
 			<< "8 - remove int meeting" << endl
+			<< "9 - compare 2 int meetings " << endl
+			<< "10 - compare 2 float meetings " << endl
+
 /*
 			<< "1 - get number of elements" << endl
 			<< "2 - get capacity" << endl
@@ -299,9 +331,6 @@ int main ()
 		case 2:
 			test.CreateFloatMeeting();
 			break;
-		case 3:
-			test.CompareTwoMeetsInt();
-			break;
 		case 4:
 			test.AddMeetingBase();
 			break;
@@ -316,9 +345,12 @@ int main ()
 		case 8:
 			test.RemoveIntMeeting();
 			break;
-		//case 9:
-		//	test.removeAndDeleteElement();
-		//	break;
+		case 9:
+			test.CompareTwoMeetsInt();
+			break;
+		case 10:
+			test.CompareTwoMeetsFloat();
+			break;
 		//case 10:
 		//	test.removeAndDeleteAll();
 		//	break;
