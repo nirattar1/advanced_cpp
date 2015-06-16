@@ -13,10 +13,30 @@ public:
 		cout << "Mobile client." << endl;
 	}
 
-	virtual void Update (Subject * ChngSubject)
+	vector<string> GetRelevantObserverTopics () 
 	{
-		//get instance of TC , get its price
-		//MOBILE IMPLEMENTATION
+		vector <string> topics;
+		topics.push_back(std::string("upgrades"));
+		topics.push_back(std::string("price"));
+		return topics;
+	}
+
+	virtual void Update (Subject * ChngSubject, string topic)
+	{
+
+		cout << "mobile client was updated for topic :" << topic << endl;
+
+
+		if (topic == std::string("upgrades"))
+		{
+			//update upgrades
+		}
+
+		if (topic == std::string("price"))
+		{
+			//update price
+		}
+
 	}
 };
 

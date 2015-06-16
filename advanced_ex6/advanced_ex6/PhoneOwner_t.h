@@ -5,6 +5,7 @@
 #include "Observer.h"
 #include <string>
 
+
 class PhoneOwnerImpl_t;
 
 class PhoneOwner_t : public Observer {
@@ -14,7 +15,7 @@ public:
 	virtual void Print();
 
 	//Observer implementation
-	virtual void Update(Subject* ChngSubject);
+	virtual void Update(Subject* ChngSubject, string topic);
 
 protected:
 	PhoneOwnerImpl_t *  _impl;

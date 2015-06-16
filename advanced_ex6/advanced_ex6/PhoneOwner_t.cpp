@@ -9,8 +9,16 @@ using namespace std;
 #include "PhoneOwnerImpl_t.h"
 #include "ClientFactory_t.h"
 
-PhoneOwner_t::~PhoneOwner_t()  {
+PhoneOwner_t::~PhoneOwner_t()  
+{
 	delete _impl;				// delete implementation created by Factory
+	//detach from subject upon destruction
+
+	if (sbj != 0) 
+	{
+		sbj->Detach(this);
+	}
+	
 	_impl=0;
 }
 
@@ -26,14 +34,19 @@ PhoneOwner_t::PhoneOwner_t(const string& Impl ) {
 	// the only change will be in Factory
 
 	//Get telephone company , attach client to TC.
-	TC_t::GetInstance().Attach(this);	
+	vector<string> & topics = _impl->GetRelevantObserverTopics();
+	for (std::vector<string>::iterator it = topics.begin() ; it != topics.end(); ++it)
+	{
+		std::cout << " attaching to topic: " << *it << endl;
+		TC_t::GetInstance().Attach(this, *it);	
+	}
 }
 
 void PhoneOwner_t::Print() {				// just redirection to implementation class
 	_impl->Print(); 
 }
 
-void PhoneOwner_t::Update(Subject* ChngSubject) 	// just redirection to implementation class
+void PhoneOwner_t::Update(Subject* ChngSubject, string topic) 	// just redirection to implementation class
 {
-	_impl->Update(ChngSubject);
+	_impl->Update(ChngSubject, topic);
 }

@@ -1,14 +1,10 @@
-﻿Build started 16/06/2015 11:41:16.
+﻿Build started 16/06/2015 14:18:25.
      1>Project "C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex6\advanced_ex6\advanced_ex6.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\advanced_ex6.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PhoneOwner_t.cpp TC_t.cpp test_TelephoneCompany.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PhoneOwner_t.cpp
          PhoneOwner_t.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         test_TelephoneCompany.cpp
-         TC_t.cpp
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -30,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.71
+Time Elapsed 00:00:00.81

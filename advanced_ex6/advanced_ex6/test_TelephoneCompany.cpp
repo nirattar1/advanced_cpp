@@ -5,9 +5,7 @@
 using namespace std;
 
 
-
-//tester - for container of int pointers .
-
+//tester - Telephone Company
 
 class Test_t 
 {
@@ -25,6 +23,7 @@ public:
 	virtual void	TC_GetInstance();
 	virtual void	Client_CreateMobile();
 	virtual void	Client_CreateStationary();
+	virtual void	TC_ChangePrice();
 private:
 
 	
@@ -53,10 +52,10 @@ void Test_t::Client_CreateStationary()
 	client->Print();
 }
 
-void Test_t::TC_GetAllClients()
-{
-
-}
+//void Test_t::TC_GetAllClients()
+//{
+//
+//}
 
 void Test_t::TC_ChangePrice ()
 {
@@ -71,6 +70,12 @@ void Test_t::TC_ChangePrice ()
 	TC_t & TC = TC_t::GetInstance();
 	TC.ChangePrice (price);
 
+}
+
+void AttachToTopics ()
+{
+
+	//
 }
 
 //
@@ -215,7 +220,6 @@ int main ()
 		unsigned int c;
 
 
-		cout << "Note : to attach date to time select option 11 ." << endl;
 		cout << "Enter your choice:" << endl
 
 			<< "1 - get Telephone Company" << endl
@@ -224,23 +228,7 @@ int main ()
 
 			<< "3 - create client : stationary" << endl
 
-			<< "4 - get time week and day" << endl
-
-			<< "5 - is leap year" << endl
-
-			<< "6 - increment const time " << endl
-
-			<< "7 - print date" << endl
-
-			<< "8 - print time" << endl
-
-			<< "9 - print const date" << endl
-
-			<< "10 - print const time" << endl
-
-			<< "11 - attach date to time " << endl
-
-			<< "12 - increment time" << endl
+			<< "4 - change service price" << endl
 
 			<< "Any other key - quit" << endl << endl;
 
@@ -262,6 +250,9 @@ int main ()
 			test.Client_CreateStationary();
 			break;
 
+		case 4:
+			test.TC_ChangePrice();
+			break;
 		
 
 		default:

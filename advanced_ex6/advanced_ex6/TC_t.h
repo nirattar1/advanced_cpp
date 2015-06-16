@@ -25,7 +25,7 @@
 	 void ChangePrice (float newPrice)
 	 {
 		 SetPrice (newPrice );
-		 Notify();
+		 Notify(std::string("price"));
 	 }
 
  protected:
