@@ -4,7 +4,6 @@
 #include <string>
 #include <time.h>
 #include "Observer.h"
-#include "cTime_t.h"
 
 //formats for the default print operation.
 typedef enum

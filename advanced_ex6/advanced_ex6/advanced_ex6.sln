@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "advanced_ex5", "advanced_ex5.vcxproj", "{AB032385-70F1-3A2D-2961-CE77EBA10595}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "advanced_ex6", "advanced_ex6.vcxproj", "{8DC14E0B-1214-46C6-2C18-97C53B174F8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB032385-70F1-3A2D-2961-CE77EBA10595}.Debug|Win32.ActiveCfg = Debug|Win32
-		{AB032385-70F1-3A2D-2961-CE77EBA10595}.Debug|Win32.Build.0 = Debug|Win32
-		{AB032385-70F1-3A2D-2961-CE77EBA10595}.Release|Win32.ActiveCfg = Release|Win32
-		{AB032385-70F1-3A2D-2961-CE77EBA10595}.Release|Win32.Build.0 = Release|Win32
+		{8DC14E0B-1214-46C6-2C18-97C53B174F8A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8DC14E0B-1214-46C6-2C18-97C53B174F8A}.Debug|Win32.Build.0 = Debug|Win32
+		{8DC14E0B-1214-46C6-2C18-97C53B174F8A}.Release|Win32.ActiveCfg = Release|Win32
+		{8DC14E0B-1214-46C6-2C18-97C53B174F8A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
