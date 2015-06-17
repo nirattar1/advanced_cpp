@@ -40,7 +40,7 @@ protected:
 private:
 
 	map <string, vector <Observer *>> _topicObservers;
-    //vector<Observer *> m_observers; 
+
 };
 
 

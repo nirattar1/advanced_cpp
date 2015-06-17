@@ -1,24 +1,15 @@
-﻿Build started 16/06/2015 14:18:25.
+﻿Build started 17/06/2015 19:58:15.
      1>Project "C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex6\advanced_ex6\advanced_ex6.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\advanced_ex6.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt PhoneOwner_t.cpp
-         PhoneOwner_t.cpp
+         All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex6\advanced_ex6\Debug\advanced_ex6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\advanced_ex6.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex6\advanced_ex6\Debug\advanced_ex6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex6\advanced_ex6\Debug\advanced_ex6.lib" /MACHINE:X86 Debug\advanced_ex6.exe.embed.manifest.res
-         Debug\Observer.obj
-         Debug\PhoneOwner_t.obj
-         Debug\TC_t.obj
-         Debug\test_TelephoneCompany.obj
+         All outputs are up-to-date.
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\advanced_ex6.exe.embed.manifest" /manifest Debug\advanced_ex6.exe.intermediate.manifest
          All outputs are up-to-date.
-       LinkEmbedManifest:
-         All outputs are up-to-date.
-         advanced_ex6.vcxproj -> C:\Nir\לימודים\code\advanced\advanced_cpp\advanced_ex6\advanced_ex6\Debug\advanced_ex6.exe
        FinalizeBuildStatus:
          Deleting file "Debug\advanced_ex6.unsuccessfulbuild".
          Touching "Debug\advanced_ex6.lastbuildstate".
@@ -26,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:00.05

@@ -7,14 +7,15 @@ class ClientStationary_t : public PhoneOwnerImpl_t {
 public:
 	ClientStationary_t () 
 		: PhoneOwnerImpl_t () {/*..*/ }
+	virtual ~ClientStationary_t(){};
 
-	virtual void Print() 
+	virtual void Print() const
 	{ 
 		cout << "Stationary client." << endl;
 	}
 
 
-	vector<string> GetRelevantObserverTopics () 
+	vector<string> GetRelevantObserverTopics () const
 	{
 		vector <string> topics;
 		topics.push_back(std::string("price"));

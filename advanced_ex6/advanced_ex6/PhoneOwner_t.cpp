@@ -26,6 +26,7 @@ PhoneOwner_t::~PhoneOwner_t()
 //create new phone owner of certain type.
 //will use client factory to create that type of client.
 //will register the client as an observer of Telephone company.
+//client will be destroyed together with together TC object.
 PhoneOwner_t::PhoneOwner_t(const string& Impl ) {
 
 	_impl = ClientFactory_t::ClientCreate(Impl);	
@@ -40,9 +41,12 @@ PhoneOwner_t::PhoneOwner_t(const string& Impl ) {
 		std::cout << " attaching to topic: " << *it << endl;
 		TC_t::GetInstance().Attach(this, *it);	
 	}
+
+	//register client to TC (TC is now owner of client)
+	TC_t::GetInstance().RegisterClient(this);
 }
 
-void PhoneOwner_t::Print() {				// just redirection to implementation class
+void PhoneOwner_t::Print() const {				// just redirection to implementation class
 	_impl->Print(); 
 }
 

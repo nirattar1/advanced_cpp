@@ -7,13 +7,14 @@ class ClientMobile_t : public PhoneOwnerImpl_t {
 public:
 	ClientMobile_t () 
 		: PhoneOwnerImpl_t () {/*..*/ }
+	virtual ~ClientMobile_t(){};
 
-	virtual void Print() 
+	virtual void Print() const
 	{ 
 		cout << "Mobile client." << endl;
 	}
 
-	vector<string> GetRelevantObserverTopics () 
+	vector<string> GetRelevantObserverTopics () const
 	{
 		vector <string> topics;
 		topics.push_back(std::string("upgrades"));

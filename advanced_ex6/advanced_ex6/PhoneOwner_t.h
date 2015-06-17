@@ -10,9 +10,9 @@ class PhoneOwnerImpl_t;
 
 class PhoneOwner_t : public Observer {
 public:
-	~PhoneOwner_t();
+	virtual ~PhoneOwner_t();
 	PhoneOwner_t(const string& Impl );
-	virtual void Print();
+	virtual void Print() const;
 
 	//Observer implementation
 	virtual void Update(Subject* ChngSubject, string topic);
